@@ -24,11 +24,11 @@ Builds steem for use in a private testnet. Also required for building unit tests
 
 ### SKIP_BY_TX_ID=[OFF/ON]
 
-By default this is off. Enabling will prevent the account history plugin querying transactions 
+By default this is off. Enabling will prevent the account history plugin querying transactions
 by id, but saving around 65% of CPU time when reindexing. Enabling this option is a
 huge gain if you do not need this functionality.
 
-## Building under Docker
+## [x] Building under Docker
 
 We ship a Dockerfile.  This builds both common node type binaries.
 
@@ -36,13 +36,17 @@ We ship a Dockerfile.  This builds both common node type binaries.
     cd steem
     docker build -t steemit/steem .
 
+## [] Building on Ubuntu 18.04
+
+
+
 ## Building on Ubuntu 16.04
 
 For Ubuntu 16.04 users, after installing the right packages with `apt` Steem
 will build out of the box without further effort:
 
     # Required packages
-    sudo apt-get install -y \
+    sudo apt install -y \
         autoconf \
         automake \
         cmake \
@@ -58,7 +62,7 @@ will build out of the box without further effort:
         python3-jinja2
 
     # Boost packages (also required)
-    sudo apt-get install -y \
+    sudo apt install -y \
         libboost-chrono-dev \
         libboost-context-dev \
         libboost-coroutine-dev \
@@ -74,13 +78,13 @@ will build out of the box without further effort:
         libboost-thread-dev
 
     # Optional packages (not required, but will make a nicer experience)
-    sudo apt-get install -y \
+    sudo apt install -y \
         doxygen \
         libncurses5-dev \
         libreadline-dev \
         perl
 
-    git clone https://github.com/steemit/steem
+    git clone https://github.com/steemit/steem.git
     cd steem
     git checkout stable
     git submodule update --init --recursive
@@ -186,9 +190,9 @@ Install Homebrew by following the instructions here: http://brew.sh/
         snappy \
         zlib \
         python3
-        
+
     pip3 install --user jinja2
-    
+
 Note: brew recently updated to boost 1.61.0, which is not yet supported by
 steem. Until then, this will allow you to install boost 1.60.0.
 
